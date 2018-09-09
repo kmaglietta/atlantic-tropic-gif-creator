@@ -123,6 +123,6 @@ pyvenv.cfg
 pip-selfcheck.json
 
 # Images
-.jpg
-.png
-.gif
+*.jpg
+*.png
+*.gif
