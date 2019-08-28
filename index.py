@@ -16,8 +16,11 @@ def saveLatestImages():
     pics = getCurrentSavedImages()
     #get the latest saved pic name removing file extension
     lastSavedPic = (pics[len(pics)-1:])[0][:-4]
-    links = links[:(links.index(lastSavedPic))]
-    saveImagesFromLinks(links)
+    try:
+        links = links[:(links.index(lastSavedPic))]
+        saveImagesFromLinks(links)
+    except ValueError:
+        return
 
 #get the list of links from NOAA   
 def getLinkNames():
@@ -37,7 +40,7 @@ def saveImagesFromLinks( links ):
     #for each link get the image
     for link in links:
         print(link)
-        urllib.request.urlretrieve("https://www.nhc.noaa.gov/archive/xgtwo/atl/"+link+"/two_atl_2d0.png", "pics/"+link+".jpg")
+        urllib.request.urlretrieve("https://www.nhc.noaa.gov/archive/xgtwo/atl/"+link+"/two_atl_5d0.png", "pics/"+link+".jpg")
 
 #get the images already saved
 def getCurrentSavedImages():
